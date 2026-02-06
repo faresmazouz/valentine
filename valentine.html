@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Valentine?</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9aa2, #ffb7b2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        background: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        position: relative;
+        height: 120px;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+        margin-right: 20px;
+    }
+
+    #yes:hover {
+        transform: scale(1.1);
+    }
+
+    #no {
+        position: absolute;
+        background: #ccc;
+        left: 160px;
+        top: 0;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Would you be my Valentine? 💘</h1>
+
+    <div class="buttons">
+        <button id="yes">Yes ❤️</button>
+        <button id="no">No ❌</button>
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseenter", () => {
+    const maxX = 250;
+    const maxY = 80;
+
+    const randX = Math.random() * maxX;
+    const randY = Math.random() * maxY;
+
+    noBtn.style.left = randX + "px";
+    noBtn.style.top = randY + "px";
+});
+
+document.getElementById("yes").addEventListener("click", () => {
+    document.querySelector(".card").innerHTML =
+        "<h1>YAY!!! 💖🥰</h1><p>I knew you'd say yes!</p>";
+});
+</script>
+
+</body>
+</html>
